@@ -49,6 +49,11 @@
 //! with the same tree ID—it is your responsibility to detect if the snapshot contains multiple
 //! subdirectories with the same contents, and only add the corresponding tree once.
 //!
+//! The [`RelativePathBuilder`][builders::RelativePathBuilder] is easier to use when you have a
+//! recursive directory listing of the snapshot—that is, a list of files with their full nested
+//! path within the snapshot root. This builder takes care of building up trees from the directory
+//! listing, and importantly, it identifies and deduplicates identical trees for you.
+//!
 //! [stack graphs]: https://docs.rs/stack-graphs/
 //!
 //! ## Feature flags
