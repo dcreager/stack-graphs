@@ -11,5 +11,14 @@ authors = [
 ]
 edition = "2018"
 
+[features]
+generate = ["dep:base16ct", "dep:sha2", "base16ct/alloc"]
+
 [dependencies]
+base16ct = { version = "0.2", optional = true }
+sha2 = { version = "0.10", optional = true }
 thiserror = { version = "1.0" }
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]

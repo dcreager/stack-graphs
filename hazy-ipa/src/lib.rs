@@ -50,10 +50,22 @@
 //! subdirectories with the same contents, and only add the corresponding tree once.
 //!
 //! [stack graphs]: https://docs.rs/stack-graphs/
+//!
+//! ## Feature flags
+//!
+//! This crate supports the following feature flags:
+//!
+//! - `generate`: Adds methods for generating [`ID`]s for files and trees from their content.
+
+#![cfg_attr(docsrs, feature(doc_cfg))]
 
 use std::collections::BTreeMap;
 
 pub mod builders;
+
+#[cfg(feature = "generate")]
+#[cfg_attr(docsrs, doc(cfg(feature = "generate")))]
+mod generate;
 
 /// An opaque identifier for a file, tree, or snapshot.  IDs should be derived from content: e.g.,
 /// two files with the same content should have the same ID.
