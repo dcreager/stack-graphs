@@ -21,6 +21,12 @@ use crate::Snapshot;
 use crate::Tree;
 use crate::ID;
 
+// Snapshot has some builder methods that live in private modules; let's expose their errors here
+// with the builder types.
+#[cfg(feature = "zip")]
+#[cfg_attr(docsrs, doc(cfg(feature = "zip")))]
+pub use crate::zip::ZipError;
+
 /// Builds up a [`Snapshot`] from a list of trees.
 ///
 /// Note that this builder is strongly tied to the structure of a snapshot.  For instance, you must

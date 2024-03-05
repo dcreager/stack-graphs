@@ -54,6 +54,11 @@
 //! path within the snapshot root. This builder takes care of building up trees from the directory
 //! listing, and importantly, it identifies and deduplicates identical trees for you.
 //!
+//! The [`Snapshot`] type provides several optional methods (gated behind feature flags) for
+//! constructing snapshots from other sources:
+//!
+//! - [`from_zip_archive`][Snapshot::from_zip_archive]
+//!
 //! [stack graphs]: https://docs.rs/stack-graphs/
 //!
 //! ## Feature flags
@@ -61,6 +66,7 @@
 //! This crate supports the following feature flags:
 //!
 //! - `generate`: Adds methods for generating [`ID`]s for files and trees from their content.
+//! - `zip`: Adds a method for building a [`Snapshot`] from the contents of a zip archive.
 
 #![cfg_attr(docsrs, feature(doc_cfg))]
 
@@ -71,6 +77,10 @@ pub mod builders;
 #[cfg(feature = "generate")]
 #[cfg_attr(docsrs, doc(cfg(feature = "generate")))]
 mod generate;
+
+#[cfg(feature = "zip")]
+#[cfg_attr(docsrs, doc(cfg(feature = "zip")))]
+mod zip;
 
 /// An opaque identifier for a file, tree, or snapshot.  IDs should be derived from content: e.g.,
 /// two files with the same content should have the same ID.
