@@ -1,0 +1,15 @@
+[package]
+name = "hazy-ipa"
+version = "0.0.0"
+description = "Incremental program analysis"
+homepage = "https://github.com/github/stack-graphs/tree/main/hazy-ipa"
+repository = "https://github.com/github/stack-graphs/"
+license = "MIT OR Apache-2.0"
+authors = [
+  "GitHub <opensource+stack-graphs@github.com>",
+  "Douglas Creager <dcreager@dcreager.net>"
+]
+edition = "2018"
+
+[dependencies]
+thiserror = { version = "1.0" }

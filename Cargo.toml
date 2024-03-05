@@ -2,12 +2,14 @@
 resolver = "1"
 members = [
   # library projects
+  "hazy-ipa",
   "lsp-positions",
   "stack-graphs",
   "tree-sitter-stack-graphs",
   "languages/*",
 ]
 default-members = [
+  "hazy-ipa",
   "lsp-positions",
   "stack-graphs",
   "tree-sitter-stack-graphs",
