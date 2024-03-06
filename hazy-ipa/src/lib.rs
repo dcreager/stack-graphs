@@ -57,6 +57,7 @@
 //! The [`Snapshot`] type provides several optional methods (gated behind feature flags) for
 //! constructing snapshots from other sources:
 //!
+//! - [`from_git_tree`][Snapshot::from_git_tree]
 //! - [`from_zip_archive`][Snapshot::from_zip_archive]
 //!
 //! [stack graphs]: https://docs.rs/stack-graphs/
@@ -66,6 +67,7 @@
 //! This crate supports the following feature flags:
 //!
 //! - `generate`: Adds methods for generating [`ID`]s for files and trees from their content.
+//! - `git`: Adds a method for building a [`Snapshot`] from the contents of a git tree.
 //! - `zip`: Adds a method for building a [`Snapshot`] from the contents of a zip archive.
 
 #![cfg_attr(docsrs, feature(doc_cfg))]
@@ -77,6 +79,10 @@ pub mod builders;
 #[cfg(feature = "generate")]
 #[cfg_attr(docsrs, doc(cfg(feature = "generate")))]
 mod generate;
+
+#[cfg(feature = "git")]
+#[cfg_attr(docsrs, doc(cfg(feature = "git")))]
+mod git;
 
 #[cfg(feature = "zip")]
 #[cfg_attr(docsrs, doc(cfg(feature = "zip")))]

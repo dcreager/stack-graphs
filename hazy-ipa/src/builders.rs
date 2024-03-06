@@ -23,6 +23,9 @@ use crate::ID;
 
 // Snapshot has some builder methods that live in private modules; let's expose their errors here
 // with the builder types.
+#[cfg(feature = "git")]
+#[cfg_attr(docsrs, doc(cfg(feature = "git")))]
+pub use crate::git::GitError;
 #[cfg(feature = "zip")]
 #[cfg_attr(docsrs, doc(cfg(feature = "zip")))]
 pub use crate::zip::ZipError;
