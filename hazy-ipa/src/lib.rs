@@ -74,7 +74,9 @@
 
 use std::collections::BTreeMap;
 
+pub mod analysis;
 pub mod builders;
+pub mod cache;
 
 #[cfg(feature = "generate")]
 #[cfg_attr(docsrs, doc(cfg(feature = "generate")))]
